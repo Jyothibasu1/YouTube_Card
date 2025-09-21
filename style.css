@@ -1,0 +1,204 @@
+/* style.css - Profile Card UI */
+
+/* Reset / base */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+:root{
+  --card-bg: #ffffff;
+  --glass-bg: rgba(255,255,255,0.85);
+  --accent: #6c5ce7;
+  --muted: #7b7f88;
+  --shadow: 0 8px 30px rgba(22, 27, 36, 0.12);
+  --radius: 14px;
+  --gap: 14px;
+  --font-sans: 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+}
+
+/* Page center */
+body {
+  min-height: 100vh;
+  display: grid;
+  place-items: center;
+  background: linear-gradient(135deg,#f3f6ff 0%, #eef9f6 100%);
+  font-family: var(--font-sans);
+  padding: 24px;
+}
+
+/* Card container */
+.profile-card {
+  width: 360px;
+  background: var(--card-bg);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  padding: 26px;
+  text-align: center;
+  transition: transform .25s ease, box-shadow .25s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Hover lift */
+.profile-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 18px 40px rgba(22,27,36,0.16);
+}
+
+/* Profile image shell */
+.profile-card .image {
+  width: 120px;
+  height: 120px;
+  margin: 0 auto;
+  border-radius: 50%;
+  padding: 4px;
+  background: linear-gradient(135deg, rgba(108,92,231,0.15), rgba(255,121,198,0.06));
+  display: grid;
+  place-items: center;
+  box-shadow: 0 6px 18px rgba(100,100,130,0.06);
+}
+
+/* Actual image */
+.profile-card .profile-img{
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 50%;
+  display: block;
+  border: 4px solid white;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.06);
+}
+
+/* Name and job */
+.text-data {
+  margin-top: 14px;
+  margin-bottom: 18px;
+}
+.text-data .name {
+  display: block;
+  font-weight: 700;
+  font-size: 20px;
+  color: #111827;
+  letter-spacing: 0.2px;
+}
+.text-data .job {
+  display: block;
+  font-size: 13px;
+  color: var(--muted);
+  margin-top: 6px;
+}
+
+/* Social buttons row */
+.media-buttons {
+  margin-top: 8px;
+  display: flex;
+  justify-content: center;
+  gap: 12px;
+  margin-bottom: 16px;
+}
+.media-buttons .link {
+  width: 40px;
+  height: 40px;
+  display: grid;
+  place-items: center;
+  border-radius: 10px;
+  color: #fff;
+  text-decoration: none;
+  font-size: 18px;
+  transition: transform .18s ease, opacity .18s ease;
+  box-shadow: 0 6px 16px rgba(12,15,30,0.06);
+}
+.media-buttons .link:hover {
+  transform: translateY(-4px) scale(1.03);
+  opacity: 0.95;
+}
+
+/* Action buttons */
+.buttons {
+  display: flex;
+  justify-content: center;
+  gap: 12px;
+  margin-top: 6px;
+  margin-bottom: 18px;
+}
+.button {
+  padding: 10px 16px;
+  border-radius: 10px;
+  border: none;
+  cursor: pointer;
+  font-weight: 600;
+  font-size: 14px;
+  transition: transform .16s ease, box-shadow .16s ease;
+  box-shadow: 0 6px 14px rgba(19, 21, 31, 0.06);
+}
+.button:first-child {
+  background: linear-gradient(90deg, var(--accent), #ff6bcb);
+  color: #fff;
+}
+.button:last-child {
+  background: transparent;
+  color: #111827;
+  border: 1px solid #e6e8ee;
+}
+
+/* Button hover */
+.button:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 14px 30px rgba(18,22,35,0.08);
+}
+
+/* Analytics row */
+.analytics {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+  margin-top: 6px;
+  padding-top: 12px;
+  border-top: 1px solid #f1f3f6;
+}
+.analytics .data {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  justify-content: center;
+  padding: 8px 6px;
+}
+.analytics .data i {
+  font-size: 18px;
+  color: var(--muted);
+  opacity: 0.9;
+}
+.analytics .number {
+  display:block;
+  font-weight:700;
+  color:#111827;
+  font-size: 14px;
+}
+
+/* Small screens responsiveness */
+@media (max-width: 420px) {
+  .profile-card {
+    width: 92%;
+    padding: 20px;
+  }
+  .media-buttons .link {
+    width: 36px;
+    height: 36px;
+    font-size: 16px;
+    border-radius: 8px;
+  }
+  .profile-card .image {
+    width: 100px;
+    height: 100px;
+  }
+  .text-data .name { font-size: 18px; }
+}
+
+/* Accessibility: focus outline */
+a:focus, button:focus {
+  outline: 3px solid rgba(99,102,241,0.18);
+  outline-offset: 3px;
+}
